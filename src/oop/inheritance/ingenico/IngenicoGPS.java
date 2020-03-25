@@ -8,7 +8,7 @@ import oop.inheritance.tpv.CommunicationDevice;
 
     private static IngenicoGPS ingenicoGPS;
 
-    private IngenicoGPS(){
+    public IngenicoGPS(){
     }
 
     public static IngenicoGPS getInstance() {

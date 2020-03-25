@@ -8,7 +8,7 @@ public class IngenicoEthernet implements CommunicationDevice {
 
     private static IngenicoEthernet ingenicoEthernet;
 
-    private IngenicoEthernet(){
+    public IngenicoEthernet(){
     }
 
     public static IngenicoEthernet getInstance() {

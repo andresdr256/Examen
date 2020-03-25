@@ -8,7 +8,7 @@ import oop.inheritance.tpv.CommunicationDevice;
 
     private static IngenicoModem ingenicoModem;
 
-    private IngenicoModem(){
+    public IngenicoModem(){
     }
 
     public static IngenicoModem getInstance() {
