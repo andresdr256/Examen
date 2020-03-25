@@ -1,6 +1,8 @@
 package oop.inheritance.tpv;
 
 import oop.inheritance.data.SupportedTerminal;
+import java.util.Map;
+import oop.inheritance.data.CommunicationType;
 
 public abstract class AbstractTPVFactory {
 
@@ -22,5 +24,7 @@ public abstract class AbstractTPVFactory {
     public abstract Display getDisplay();
 
     public abstract Keyboard getKeyboard();
+
+    public abstract Map<CommunicationType, CommunicationDevice> getCommunicationDeviceMap();
 
 }

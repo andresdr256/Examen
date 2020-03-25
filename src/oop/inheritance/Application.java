@@ -15,8 +15,10 @@ import oop.inheritance.tpv.CardSwipper;
 import oop.inheritance.tpv.ChipReader;
 import oop.inheritance.tpv.Display;
 import oop.inheritance.tpv.Keyboard;
-
-
+import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
+import oop.inheritance.tpv.CommunicationDevice;
 import java.time.LocalDateTime;
 
 public class Application {
@@ -95,31 +97,14 @@ public class Application {
     }
 
     private TransactionResponse sendSale(Transaction transaction) {
-        IngenicoEthernet ethernet = IngenicoEthernet.getInstance();
-        IngenicoModem modem = IngenicoModem.getInstance();
-        IngenicoGPS gps = IngenicoGPS.getInstance();
-        TransactionResponse transactionResponse = null;
+        Map<CommunicationType, CommunicationDevice> communicationDeviceMap = abstractTPVFactory.getCommunicationDeviceMap();
 
-        switch (communicationType) {
-            case ETHERNET:
-                ethernet.open();
-                ethernet.send(transaction);
-                transactionResponse = ethernet.receive();
-                ethernet.close();
-                break;
-            case GPS:
-                gps.open();
-                gps.send(transaction);
-                transactionResponse = gps.receive();
-                gps.close();
-                break;
-            case MODEM:
-                modem.open();
-                modem.send(transaction);
-                transactionResponse = modem.receive();
-                modem.close();
-                break;
-        }
+        CommunicationDevice communicationDevice = communicationDeviceMap.get(CommunicationType.ETHERNET);
+
+        communicationDevice.open();
+        communicationDevice.send(transaction);
+        TransactionResponse transactionResponse = communicationDevice.receive();
+        communicationDevice.close();
 
         return transactionResponse;
     }
