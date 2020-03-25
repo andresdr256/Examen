@@ -1,10 +1,11 @@
 package oop.inheritance.ingenico;
+import oop.inheritance.tpv.Keyboard;
 
-public class IngenicoKeyboard {
+public class IngenicoKeyboard implements Keyboard {
 
     private static IngenicoKeyboard ingenicoKeyboard;
 
-    private IngenicoKeyboard(){
+    public IngenicoKeyboard(){
     }
 
     /**

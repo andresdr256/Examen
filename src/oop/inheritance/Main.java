@@ -1,11 +1,13 @@
 package oop.inheritance;
 
 import oop.inheritance.data.SupportedTerminal;
+import oop.inheritance.tpv.AbstractTPVFactory;
 
 public class Main {
 
     public static void main(String[] args) {
-        Application application = new Application(SupportedTerminal.INGENICO);
+        AbstractTPVFactory factory = AbstractTPVFactory.getFactory(SupportedTerminal.INGENICO);
+        Application application = new Application(factory);
 
         while (true) {
             application.clearScreen();
