@@ -1,21 +1,10 @@
 package oop.inheritance;
 
-import java.time.LocalDateTime;
-
-import oop.inheritance.data.Card;
-import oop.inheritance.data.CommunicationType;
-import oop.inheritance.data.SupportedTerminal;
-import oop.inheritance.data.Transaction;
-import oop.inheritance.data.TransactionResponse;
-import oop.inheritance.ingenico.IngenicoCardSwipper;
-import oop.inheritance.ingenico.IngenicoChipReader;
-import oop.inheritance.ingenico.IngenicoDisplay;
-import oop.inheritance.ingenico.IngenicoEthernet;
-import oop.inheritance.ingenico.IngenicoGPS;
-import oop.inheritance.ingenico.IngenicoKeyboard;
-import oop.inheritance.ingenico.IngenicoModem;
-import oop.inheritance.ingenico.IngenicoPrinter;
+import oop.inheritance.data.*;
+import oop.inheritance.ingenico.*;
 import oop.inheritance.verifone.v240m.VerifoneV240mDisplay;
+
+import java.time.LocalDateTime;
 
 public class Application {
 
@@ -72,11 +61,11 @@ public class Application {
 
         String amount = ingenicoKeyboard.get(); //Amount with decimal point as string
 
-        Transaction transaction = new Transaction();
-
-        transaction.setLocalDateTime(LocalDateTime.now());
-        transaction.setCard(card);
-        transaction.setAmountInCents(Integer.parseInt(amount.replace(".", "")));
+        Transaction transaction = Transaction.builder()
+                .localDateTime(LocalDateTime.now())
+                .card(card)
+                .amountInCents(Integer.parseInt(amount.replace(".", "")))
+                .build();
 
         TransactionResponse response = sendSale(transaction);
 

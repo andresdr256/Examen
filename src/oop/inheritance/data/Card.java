@@ -19,7 +19,6 @@ public final class Card {
         return expirationDate;
     }
 
-
     public EntryMode getEntryMode() {
         return entryMode;
     }
