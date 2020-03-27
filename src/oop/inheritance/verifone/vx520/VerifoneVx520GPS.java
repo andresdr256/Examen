@@ -5,6 +5,19 @@ import oop.inheritance.data.TransactionResponse;
 import oop.inheritance.tpv.CommunicationDevice;
 
 public class VerifoneVx520GPS implements CommunicationDevice{
+    private static VerifoneVx520GPS verifoneVx520GPS;
+
+    public VerifoneVx520GPS(){
+    }
+
+    public static VerifoneVx520GPS getInstance() {
+        if (verifoneVx520GPS == null) {
+            verifoneVx520GPS = new VerifoneVx520GPS();
+        }
+
+        return verifoneVx520GPS;
+    }
+
     /**
      * Opens a connection using the GPS device
      *
@@ -18,19 +31,20 @@ public class VerifoneVx520GPS implements CommunicationDevice{
     /**
      * Sends a message to the server
      *
-     * @param transaction message to be sent to the server
+     * @param message message to be sent to the server
      * @return true if the message was sent successfully, false otherwise
      */
-    public boolean send(Transaction transaction) {
+    public boolean send(Transaction message) {
         return true;
     }
+
     /**
      * Method blocks until host send a response or until a timeout is reached.
      *
      * @return Message received from the host. In case of timeout it returns null
      */
     public TransactionResponse receive() {
-        return new TransactionResponse(true, "12314");
+        return new TransactionResponse(true, "782132");
     }
 
     /**

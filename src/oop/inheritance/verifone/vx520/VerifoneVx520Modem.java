@@ -6,6 +6,19 @@ import oop.inheritance.tpv.CommunicationDevice;
 
 public class VerifoneVx520Modem implements CommunicationDevice {
 
+    private static VerifoneVx520Modem verifoneVx520Modem;
+
+    public VerifoneVx520Modem(){
+    }
+
+    public static VerifoneVx520Modem getInstance() {
+        if (verifoneVx520Modem == null) {
+            verifoneVx520Modem = new VerifoneVx520Modem();
+        }
+
+        return verifoneVx520Modem;
+    }
+
     /**
      * Opens a connection using the modem device
      *
@@ -19,19 +32,20 @@ public class VerifoneVx520Modem implements CommunicationDevice {
     /**
      * Sends a message to the server
      *
-     * @param transaction message to be sent to the server
+     * @param message message to be sent to the server
      * @return true if the message was sent successfully, false otherwise
      */
-    public boolean send(Transaction transaction) {
+    public boolean send(Transaction message) {
         return true;
     }
+
     /**
      * Method blocks until host send a response or until a timeout is reached.
      *
      * @return Message received from the host. In case of timeout it returns null
      */
     public TransactionResponse receive() {
-        return new TransactionResponse(true, "12314");
+        return new TransactionResponse(true, "132123");
     }
 
     /**

@@ -4,13 +4,23 @@ import oop.inheritance.tpv.Display;
 
 public class VerifoneVx690Display implements Display {
 
+    private static VerifoneVx690Display verifoneVx690Display;
+
+    private VerifoneVx690Display(){
+    }
+
     /**
      * Prints a message to specied position
-     *
-     * @param x       horizontal position
-     * @param y       vertical position
-     * @param message message to be printed
      */
+
+    public static VerifoneVx690Display getInstance() {
+        if (verifoneVx690Display == null) {
+            verifoneVx690Display = new VerifoneVx690Display();
+        }
+
+        return verifoneVx690Display;
+    }
+
     public void showMessage(int x, int y, String message) {
     }
 
@@ -18,6 +28,5 @@ public class VerifoneVx690Display implements Display {
      * Clears the screen
      */
     public void clear() {
-
     }
 }

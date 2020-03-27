@@ -6,6 +6,19 @@ import oop.inheritance.data.TransactionResponse;
 
 public class VerifoneVx690Ethernet implements CommunicationDevice {
 
+    private static VerifoneVx690Ethernet verifoneVx690Ethernet;
+
+    public VerifoneVx690Ethernet(){
+    }
+
+    public static VerifoneVx690Ethernet getInstance() {
+        if (verifoneVx690Ethernet == null) {
+            verifoneVx690Ethernet = new VerifoneVx690Ethernet();
+        }
+
+        return verifoneVx690Ethernet;
+    }
+
     /**
      * Opens a connection using the ethernet device
      *
@@ -22,7 +35,7 @@ public class VerifoneVx690Ethernet implements CommunicationDevice {
      * @param transaction message to be sent to the server
      * @return true if the message was sent successfully, false otherwise
      */
-    public boolean send(Transaction transaction){
+    public boolean send(Transaction transaction) {
         return true;
     }
 
@@ -31,14 +44,15 @@ public class VerifoneVx690Ethernet implements CommunicationDevice {
      *
      * @return Message received from the host. In case of timeout it returns null
      */
-    public TransactionResponse receive () {
+    public TransactionResponse receive() {
         return new TransactionResponse(true, "12314");
     }
 
     /**
      * Closes the channel releasing every used resources
      */
-    public void close () {
+    public void close() {
 
     }
+
 }
