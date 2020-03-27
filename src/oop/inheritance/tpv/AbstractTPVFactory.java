@@ -10,8 +10,12 @@ public abstract class AbstractTPVFactory {
         switch (supportedTerminal) {
             case INGENICO:
                 return new IngenicoTPVFactory();
-            case VERIFONE:
+            case VERIFONEV240:
                 return new VerifoneV240Factory();
+            case VERIFONEVX520:
+                return new VerifoneVX520Factory();
+            case VERIFONEVX690:
+                return new VerifoneVX690Factory();
         }
 
         throw new UnsupportedOperationException("Terminal not supported");

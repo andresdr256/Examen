@@ -3,8 +3,9 @@ package oop.inheritance.verifone.vx690;
 import oop.inheritance.data.Card;
 import oop.inheritance.data.EntryMode;
 import oop.inheritance.data.ExpirationDate;
+import oop.inheritance.tpv.ChipReader;
 
-public class VerifoneVx690ChipReader {
+public class VerifoneVx690ChipReader implements ChipReader {
 
     public Card readCard() {
         return Card.builder()
